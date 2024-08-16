@@ -14,18 +14,15 @@ public abstract class BaseTest {
     WebDriver driver;
     WebDriverWait wait;
 
-
     @BeforeEach
     void setup() {
-        System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\chromedriver.exe");
+        System.setProperty("webDriver.chrome.driver", "src\\test\\resources\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--incognito");
         options.addArguments("start-maximized");
-        options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 
     @AfterEach
-    void tearDown() {driver.quit();}
+    void Close() {driver.quit();}
 }
